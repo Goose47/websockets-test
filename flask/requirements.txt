@@ -1,4 +1,4 @@
 Flask
-uWSGI
+
 gevent
 Flask-uWSGI-WebSocket
