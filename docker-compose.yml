@@ -1,0 +1,31 @@
+version: '3'
+services:
+
+  nginx:
+    image: nginx:alpine
+    container_name: app_nginx
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx/conf.d/:/etc/nginx/conf.d/
+    networks:
+      - app
+
+  flask:
+    container_name: app_flask
+    restart: unless-stopped
+    build:
+      context: ./flask
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./flask:/app
+    networks:
+      - app
+
+networks:
+  app:
+    driver: bridge
