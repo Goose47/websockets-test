@@ -5,10 +5,8 @@ from app import websocket
 # a list to store all connected clients
 clients = []
 # sample websocket endpoint
-print('huy')
 @websocket.route('/echo')
 def echo(ws):
-    print('privet')
     clients.append(ws)
     while True:
         msg = ws.receive()
