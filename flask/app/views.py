@@ -1,9 +1,6 @@
 from app import app
-from flask_uwsgi_websocket import GeventWebSocket
+from app import websocket
 
-
-websocket = GeventWebSocket()
-websocket.init_app(app)
 
 # a list to store all connected clients
 clients = []
