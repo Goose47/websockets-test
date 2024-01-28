@@ -10,4 +10,4 @@ COPY ./requirements.txt requirements.txt
 RUN pip install -r requirements.txt
 
 EXPOSE 5000
-CMD ["uwsgi", "--master", "--http", ":5000", "--http-websockets", "--gevent 100", "--wsgi", "main:app"]
+CMD ["uwsgi", "--master", "--http", ":5000", "--http-websockets", "--gevent" "100", "--wsgi", "main:app"]
