@@ -18,4 +18,4 @@ def echo(ws):
 
 
 if __name__ == '__main__':
-    app.run(gevent=100)
+    app.run(gevent=100, port=6000)
