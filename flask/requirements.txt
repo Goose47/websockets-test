@@ -2,3 +2,4 @@ Flask
 Flask-uWSGI-WebSocket
 gevent
 uwsgi
+websockets
