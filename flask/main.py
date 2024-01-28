@@ -1,19 +1,21 @@
-from flask import Flask, render_template
-from flask_socketio import SocketIO, emit
+from flask import Flask
+from flask_uwsgi_websocket import GeventWebSocket
 
 app = Flask(__name__)
-socketio = SocketIO(app)
+websocket = GeventWebSocket(app)
 
 
 @app.route('/')
-def index():
-    return 'heloe worldo'
+def home():
+    return 'heheheha'
 
 
-@socketio.event
-def my_event(message):
-    emit('my response', {'data': 'got it!'})
+@websocket.route('/echo')
+def echo(ws):
+    while True:
+        msg = ws.receive()
+        ws.send(msg)
 
 
 if __name__ == '__main__':
-    socketio.run(app)
+    app.run(gevent=100)
