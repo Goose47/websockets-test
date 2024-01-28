@@ -1,6 +1,6 @@
 FROM python:3.6
 WORKDIR /app
-
+RUN apt-get update
 RUN apt-get install \
      build-essential \
      libssl-dev python3-dev \
