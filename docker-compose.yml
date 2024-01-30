@@ -13,7 +13,7 @@ services:
     networks:
       - app
 
-  flask:
+  fastapi:
     container_name: app_fastapi
     restart: unless-stopped
     build:
