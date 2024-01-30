@@ -20,6 +20,6 @@ async def websocket_endpoint(websocket: WebSocket):
 async def websocket_endpoint(websocket: WebSocket):
     await websocket.accept()
     while True:
-        time.sleep(1500)
+        time.sleep(1)
         await websocket.send_text(f"ty pidor")
 
