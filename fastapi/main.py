@@ -1,5 +1,5 @@
 from fastapi import FastAPI, WebSocket
-from time import time
+import time
 app = FastAPI()
 
 
