@@ -5,10 +5,23 @@
   <title>Title</title>
 </head>
 <body>
-// head
-
+<button id="new-socket">press me</button>
 <script>
-  let sock = new WebSocket("ws://84.38.180.81:5000/echo");
+document.addEventListener('DOMContentLoaded', () => {
+  let btn = document.getElementById('new-socket')
+  let sockets = []
+
+  btn.addEventListener('click', () => {
+    let sock = new WebSocket("ws://84.38.180.81:8000/pidor")
+    let sockId = sockets.length
+
+    sock.addEventListener("message", (event) => {
+      console.log('message from socket ' + sockId + ':', event.data);
+    });
+
+    sockets.push(sock)
+  })
+})
 </script>
 </body>
 </html>
