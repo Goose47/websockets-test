@@ -1,5 +1,5 @@
 from fastapi import FastAPI, WebSocket
-
+from time import time
 app = FastAPI()
 
 
@@ -8,9 +8,18 @@ async def get():
     return 'heloe worldo'
 
 
-@app.websocket("/ws")
+@app.websocket("/echo")
 async def websocket_endpoint(websocket: WebSocket):
     await websocket.accept()
     while True:
-        da = await websocket.receive_text()
+        data = await websocket.receive_text()
         await websocket.send_text(f"Message text was: {data}")
+
+
+@app.websocket("/")
+async def websocket_endpoint(websocket: WebSocket):
+    await websocket.accept()
+    while True:
+        time.sleep(1500)
+        await websocket.send_text(f"ty pidor")
+
