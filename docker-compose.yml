@@ -14,16 +14,15 @@ services:
       - app
 
   flask:
-    container_name: app_flask
+    container_name: app_fastapi
     restart: unless-stopped
     build:
-      context: ./flask
+      context: ./fastapi
       dockerfile: Dockerfile
     ports:
-      - "5000:5000"
-      - "6000:6000"
+      - "8000:8000"
     volumes:
-      - ./flask:/app
+      - ./fastapi:/app
     networks:
       - app
 
