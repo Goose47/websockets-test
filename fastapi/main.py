@@ -1,5 +1,6 @@
 from fastapi import FastAPI, WebSocket
-import time
+import asyncio
+
 app = FastAPI()
 
 
@@ -20,6 +21,6 @@ async def websocket_endpoint(websocket: WebSocket):
 async def websocket_endpoint(websocket: WebSocket):
     await websocket.accept()
     while True:
-        await time.sleep(1)
+        await asyncio.sleep(1)
         await websocket.send_text(f"ty pidor")
 
