@@ -9,12 +9,12 @@ async def get():
     return 'heloe worldo'
 
 
-@app.get("/hehehe")
+@app.get("/ws/hehehe")
 async def get():
     return 'ha'
 
 
-@app.websocket("/echo")
+@app.websocket("/ws/echo")
 async def websocket_endpoint(websocket: WebSocket):
     await websocket.accept()
     while True:
