@@ -22,10 +22,10 @@ async def websocket_endpoint(websocket: WebSocket):
         await websocket.send_text(f"Message text was: {data}")
 
 
-@app.websocket("/ws/pidor")
+@app.websocket("/ws/horoshij_chelovek")
 async def websocket_endpoint(websocket: WebSocket):
     await websocket.accept()
     while True:
         await asyncio.sleep(1)
-        await websocket.send_text(f"ty pidor")
+        await websocket.send_text(f"ty horoshij_chelovek")
 
