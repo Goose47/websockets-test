@@ -9,7 +9,7 @@ async def get():
     return 'heloe worldo'
 
 
-@app.get("/ws/hehehe")
+@app.get("/hehehe")
 async def get():
     return 'ha'
 
@@ -22,7 +22,7 @@ async def websocket_endpoint(websocket: WebSocket):
         await websocket.send_text(f"Message text was: {data}")
 
 
-@app.websocket("/pidor")
+@app.websocket("/ws/pidor")
 async def websocket_endpoint(websocket: WebSocket):
     await websocket.accept()
     while True:
